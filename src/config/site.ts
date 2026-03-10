@@ -1,9 +1,9 @@
 import ogImage from "@/assets/og-image.png";
 
 export const siteConfig = {
-  name: "Astro Starter Pro",
-  description: "Just another Astro blog",
-  url: "https://thuanbui.me",
+  name: "Ba Lô & Dép Lào",
+  description: "You only live once. Make it count!",
+  url: "https://balodeplao.com",
   lang: "vi",
   locale: "vi_VN",
   author: "Thuan Bui",
@@ -15,7 +15,6 @@ export const siteConfig = {
   },
   navLinks: [
     { text: "Home", href: "/" },
-    { text: "About", href: "/about" },
     { text: "Blog", href: "/blog" },
     { text: "Contact", href: "/contact" },
   ],

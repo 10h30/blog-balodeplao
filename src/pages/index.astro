@@ -2,133 +2,64 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { siteConfig } from "@/config/site";
 import Hero from "@/components/widgets/Hero.astro";
-import Features from "@/components/widgets/Features.astro";
-import devImg from "@/assets/images/dev_balanced.png";
-import openSourceImg from "@/assets/images/open-source.png";
-import Content2 from "@/components/widgets/Content2.astro";
+import PostItem from "@/components/blog/PostItem.astro";
+import { getCollection } from "astro:content";
+
 const metadata = {
-  title: `${siteConfig.name} — The next step for your project`,
+  title: `${siteConfig.name} — You Only Live Once`,
   description:
-    "A modern and professional template for your web projects with Astro and Tailwind CSS. Boost your development with a solid foundation.",
+    "Chào mừng bạn đến với blog của chúng tôi, nơi chúng tôi chia sẻ những câu chuyện, kiến thức và trải nghiệm về cuộc sống. Hãy cùng khám phá và tận hưởng hành trình này nhé!",
   ignoreTitleTemplate: true,
 };
+
+const blogEntries = await getCollection("blog");
+const latestPosts = blogEntries
+  .filter((post) => post.data && post.data.pubDate)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 5);
+
+const firstRow = latestPosts.slice(0, 2);
+const secondRow = latestPosts.slice(2, 5);
 ---
 
 <BaseLayout {metadata}>
   <Hero
-    title={`Starter Template for <br class="hidden md:block" /> <span class="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Web Developers</span>`}
-    tagline="Astro v5 + Tailwind v4"
-    description={`${siteConfig.description}`}
-    actions={[
-      {
-        text: "Get Started",
-        href: "https://github.com/devgelo-labs/astro-starter-pro",
-        variant: "primary",
-        icon: "lucide:github",
-      },
-      {
-        text: "Our Services",
-        href: "/services",
-        variant: "secondary",
-        icon: "lucide:arrow-right",
-        ariaLabel: "Learn more about our services",
-      },
-    ]}
+    title={`You Only Live Once`}
+    tagline=""
+    description=""
+    bgImage="https://images.balodeplao.com/460cc863-81ff-44b4-811f-422558bd2078.jpg"
   />
-  <Features
-    tagline="Features"
-    title="What's Included"
-    subtitle="A selection of tools and configurations to streamline your workflow."
-    features={[
-      {
-        title: "Optimized SEO",
-        description:
-          "Base configuration for Meta tags, Open Graph, and Sitemap generation.",
-        icon: "lucide:scan-search",
-        iconClass: "bg-blue-500/10 text-blue-400",
-      },
-      {
-        title: "High Performance",
-        description: "Lightweight structure for fast load times.",
-        icon: "lucide:zap",
-        iconClass: "bg-purple-500/10 text-purple-400",
-      },
-      {
-        title: "Tailwind v4",
-        description:
-          "Integrated configuration with the latest version of Tailwind CSS.",
-        icon: "lucide:palette",
-        iconClass: "bg-pink-500/10 text-pink-400",
-      },
-    ]}
-  />
-  <Content2
-    items={[
-      {
-        title: "Responsive Design",
-        description:
-          "Base configuration for Meta tags, Open Graph, and Sitemap generation.",
-        icon: "lucide:scan-search",
-        iconClass: "bg-blue-500/10 text-blue-400",
-      },
-      {
-        title: "High Performance",
-        description: "Lightweight structure for fast load times.",
-        icon: "lucide:zap",
-        iconClass: "bg-purple-500/10 text-purple-400",
-      },
-      {
-        title: "Tailwind v4",
-        description:
-          "Integrated configuration with the latest version of Tailwind CSS.",
-        icon: "lucide:palette",
-        iconClass: "bg-pink-500/10 text-pink-400",
-      },
-    ]}
-    image={devImg}
-    imageAlt="Development"
-  >
-    <Fragment>
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
-        Development
-      </h3>
-      We provide a solid foundation to start your projects with best practices.
-    </Fragment>
-  </Content2>
-  <Content2
-    items={[
-      {
-        title: "Open Source",
-        description:
-          "Developed under the MIT license, free for personal and commercial use.",
-        icon: "lucide:github",
-        iconClass: "bg-indigo-500/10 text-indigo-400",
-      },
-      {
-        title: "Community Driven",
-        description:
-          "Built with the feedback and contributions of the developer community.",
-        icon: "lucide:users",
-        iconClass: "bg-orange-500/10 text-orange-400",
-      },
-      {
-        title: "Regular Updates",
-        description:
-          "Continuously improved with the latest technologies and best practices.",
-        icon: "lucide:refresh-cw",
-        iconClass: "bg-teal-500/10 text-teal-400",
-      },
-    ]}
-    image={openSourceImg}
-    imageAlt="Community and Open Source"
-    isReversed={true}
-  >
-    <Fragment>
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
-        Open Source & Community
-      </h3>
-      Join the revolution of modern web development. This project is open for everyone
-      to use, learn from, and contribute to.
-    </Fragment>
-  </Content2>
+
+  <section class="relative px-4 py-12 sm:px-6 lg:px-8 md:py-36">
+    <div class="mx-auto max-w-5xl">
+      <div class="grid gap-8 md:grid-cols-2 mb-8">
+        {firstRow.map((post) => <PostItem post={post} />)}
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-3 mb-12">
+        {secondRow.map((post) => <PostItem post={post} />)}
+      </div>
+
+      <div class="text-center">
+        <a
+          href="/blog"
+          class="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+        >
+          Xem tất cả bài viết
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

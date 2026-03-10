@@ -1,39 +1,67 @@
-# 🚀 Astro Starter Pro
+# Balodeplao.com — Family Travel Blog
 
-**Astro Starter Pro** is a professional, open-source template for building fast websites using **[Astro 5](https://astro.build/) + [Tailwind CSS 4](https://tailwindcss.com/)**. Designed with industry best practices, optimized SEO, and a modern development experience.
+Welcome to the codebase for [balodeplao.com](https://balodeplao.com) — our family travel blog! Here, we share stories, tips, and experiences from our journeys around the world. This site is built to inspire, inform, and connect with fellow travelers and families who love to explore.
 
-<br>
+---
 
-[![GitHub stars](https://badgen.net/github/stars/devgelo-labs/astro-starter-pro?icon=github&label=Star)](https://github.com/devgelo-labs/astro-starter-pro)
-[![Clones](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fangelop47%2Fastro-starter-template%2Fmain%2F.github%2Fdata%2Fclones.json&query=%24.count&label=Clones&color=brightgreen&style=flat-square&logo=github)](https://github.com/devgelo-labs/astro-starter-pro)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](./LICENSE)
-[![Astro](https://img.shields.io/badge/Astro-5.0-orange?style=flat-square&logo=astro)](https://astro.build/)
-[![Tailwind](https://img.shields.io/badge/Tailwind-4.0-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
-[![Maintainer](https://img.shields.io/badge/maintainer-devgelo-purple?style=flat-square)](https://github.com/devgelo-labs)
+## About
 
-<br>
+This repository hosts the source code for our family travel blog, [balodeplao.com](https://balodeplao.com). The blog features:
 
-<details open>
-<summary>Table of Contents</summary>
+- ✈️ Personal travel stories and guides
+- 🏝️ Family-friendly destinations and tips
+- 📸 Photo galleries and travel inspiration
+- 📝 Practical advice for traveling with kids
 
-- [Demo](#demo)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Quick Start](#quick-start)
-- [Configuration](#configuration)
-- [Content Management](#content-management)
-- [Commands](#commands)
-- [Support the Project](#support-the-project)
-- [License](#license)
+---
 
-</details>
+## Tech Stack
 
-<br>
+This blog is built with modern, high-performance technologies:
 
-## Demo
+- **[Astro](https://astro.build/)** (based on Astro Starter Theme)
+- **[Tailwind CSS](https://tailwindcss.com/)**
+- **TypeScript**
+- **MDX/Markdown** for content
 
-📌 [https://astrostarterpro.com/](https://astrostarterpro.com/)
+---
+
+## Features
+
+- Responsive, fast, and SEO-optimized
+- Dark & Light mode
+- Content collections for easy blog management
+- Reusable components and layouts
+- RSS feed, sitemap, and meta tags for discoverability
+
+---
+
+## Getting Started
+
+To run the blog locally:
+
+```bash
+git clone https://github.com/10h30/blog-balodeplao.git
+cd blog-balodeplao
+npm install
+npm run dev
+```
+
+---
+
+## Contributing
+
+This is a personal/family project, but suggestions and improvements are welcome! Feel free to open an issue or pull request.
+
+---
+
+## License
+
+This project is licensed under the **MIT** license. See the [LICENSE](./LICENSE) file for details.
+
+---
+
+> _Originally based on Astro Starter Theme. Customized and expanded for our family travel blog._
 
 ## Features
 

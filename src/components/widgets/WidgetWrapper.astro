@@ -19,12 +19,13 @@ const wrapperClasses = {
 <div
   id={id}
   class:list={[
-    "relative not-prose scroll-mt-[72px]",
+    "relative not-prose scroll-mt-18 overflow-hidden",
     bg,
     { dark: isDark },
     { reveal: animate },
   ]}
 >
+  <slot name="bg" />
   <div
     class:list={[
       "relative mx-auto max-w-7xl px-4 md:px-6 text-default py-8 md:py-12",
