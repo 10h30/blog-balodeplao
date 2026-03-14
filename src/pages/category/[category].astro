@@ -18,7 +18,9 @@ export async function getStaticPaths() {
       params: { category: category as string },
       props: {
         category,
-        posts: posts.filter((post) => post.data.categories === category),
+        posts: posts.filter((post) =>
+          post.data.categories?.includes(category as string),
+        ),
       },
     };
   });
