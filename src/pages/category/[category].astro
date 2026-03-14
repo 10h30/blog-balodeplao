@@ -10,9 +10,7 @@ export async function getStaticPaths() {
 
   const categories = new Set();
   posts.forEach((post) => {
-    if (post.data.category) {
-      categories.add(post.data.category);
-    }
+    post.data.categories?.forEach((tag) => categories.add(tag));
   });
 
   return Array.from(categories).map((category) => {
@@ -20,7 +18,7 @@ export async function getStaticPaths() {
       params: { category: category as string },
       props: {
         category,
-        posts: posts.filter((post) => post.data.category === category),
+        posts: posts.filter((post) => post.data.categories === category),
       },
     };
   });
@@ -50,7 +48,7 @@ const metadata = {
       />
 
       <div class="mb-8 text-center">
-        <a href="/blog" class="text-primary hover:underline">← Back to blog</a>
+        <a href="/blog" class="text-primary hover:underline">← Quay lại blog</a>
       </div>
 
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

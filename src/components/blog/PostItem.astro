@@ -1,5 +1,6 @@
 ---
 import Tags from "@/components/ui/Tags.astro";
+import Categories from "@/components/ui/Categories.astro";
 import { type CollectionEntry, render } from "astro:content";
 
 export interface Props {
@@ -10,7 +11,7 @@ const { post } = Astro.props;
 const { remarkPluginFrontmatter } = await render(post);
 
 const readingTime = remarkPluginFrontmatter?.minutesRead
-  ? `${Math.ceil(remarkPluginFrontmatter.minutesRead)} min read`
+  ? `${Math.ceil(remarkPluginFrontmatter.minutesRead)} phút đọc`
   : "";
 ---
 
@@ -34,7 +35,7 @@ const readingTime = remarkPluginFrontmatter?.minutesRead
         {post.data.author}
       </p>
       <a
-        href={`/blog/${post.id}`}
+        href={`/${post.id}`}
         class="mt-2 block before:absolute before:inset-0 before:z-10"
       >
         <p class="text-xl font-semibold text-foreground group-hover:underline">
@@ -55,7 +56,7 @@ const readingTime = remarkPluginFrontmatter?.minutesRead
         <div class="flex space-x-1 text-sm text-muted-foreground">
           <time datetime={post.data.pubDate.toISOString()}>
             {
-              post.data.pubDate.toLocaleDateString("en-US", {
+              post.data.pubDate.toLocaleDateString("vi-VN", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
@@ -68,6 +69,14 @@ const readingTime = remarkPluginFrontmatter?.minutesRead
         </div>
       </div>
     </div>
+
+    {
+      post.data.categories && (
+        <div class="mt-4 relative z-20 flex flex-wrap gap-2">
+          <Categories categories={post.data.categories} />
+        </div>
+      )
+    }
 
     {
       post.data.tags && (
