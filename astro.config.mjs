@@ -4,6 +4,7 @@ import mdx from "@astrojs/mdx";
 import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import remarkReadingTime from "remark-reading-time";
+import { remarkR2Images } from './src/plugins/remark-r2-images.mjs';
 
 export default defineConfig({
   site: "https://balodeplao.com/",
@@ -17,6 +18,7 @@ export default defineConfig({
             file.data.readingTime.minutes;
         };
       },
+      remarkR2Images
     ],
   },
   i18n: {
